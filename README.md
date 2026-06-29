@@ -1,359 +1,306 @@
-# 📅 XONICAL v2.0 - Organizador de Eventos, Proyectos, Congresos y Artículos con IA y Web Scraping
+# XONICAL - Agente IA para Optimización de Horarios Universitarios
 
 ```
-╔══════════════════════════════════════════════════════════════════════════════╗
-║                           XONICAL v2.0                                       ║
-║              Organizador Inteligente con IA y Web Scraping                   ║
-║                                                                              ║
-║                    Desarrollado por: Darian Alberto                          ║
-║                           Camacho Salas                                      ║
-║                              (XONIDU)                                        ║
-╚══════════════════════════════════════════════════════════════════════════════╝
+================================================================================
+                          XONICAL v3.0
+              Agente Inteligente para Horarios Universitarios
+              Integración con MisProfesores.com
+              
+                    Desarrollado por: XONIDU
+                 (Darian Alberto Camacho Salas)
+================================================================================
 ```
 
 ## 🎯 ¿Qué es XONICAL?
 
-**XONICAL** es un sistema web completo para la organización de eventos académicos, proyectos de investigación, congresos y artículos científicos. Integra inteligencia artificial (Gemini) con múltiples API keys y web scraping para automatizar la creación y análisis de contenido.
+**XONICAL** es un agente de IA especializado en la optimización de horarios universitarios. Su misión es guiar al estudiante paso a paso para crear el horario perfecto, combinando:
 
-- **🤖 IA Gemini** con múltiples API keys y rotación automática
-- **🌐 Web Scraping** para análisis de convocatorias y URLs
-- **📅 Calendario visual** de eventos con vista mensual y diaria
-- **📋 Gestión de Eventos, Proyectos, Congresos y Artículos**
-- **📱 Acceso mediante código QR** desde cualquier dispositivo
-- **📄 Generación de reportes PDF** de todos los módulos
+1. **Datos extraídos de PDFs** de horarios oficiales
+2. **Análisis de calificaciones** de profesores desde **MisProfesores.com**
+3. **Preferencias personalizadas** del usuario
+4. **Reglas de optimización** inteligente
 
-## ✨ Características
+---
 
-- **📅 Calendario visual** de eventos con vista mensual y diaria
-- **📋 Gestión de Eventos** con campos: nombre, día, hora, categoría, descripción, ubicación
-- **📊 Gestión de Proyectos** de investigación
-- **🎯 Gestión de Congresos** académicos
-- **📝 Gestión de Artículos** científicos (NUEVO)
-- **🤖 IA Gemini** con múltiples API keys y rotación automática
-- **🌐 Web Scraping** integrado para análisis de convocatorias y URLs
-- **📱 Acceso mediante código QR** desde cualquier dispositivo
-- **🔐 Login único** para administradores (acceso público solo lectura)
-- **📄 Generación de reportes PDF** de todos los módulos
-- **🔍 Buscador global** en toda la plataforma
-- **💬 Chat con IA** integrado para consultas
-- **⚡ Creación de eventos con IA** a partir de descripciones
-- **📎 Gestión de links, participantes y requisitos** para cada entidad
+## 🤖 Accede al Agente XONICAL
 
-## 📦 Instalación Rápida
+Puedes interactuar con XONICAL directamente a través del siguiente enlace:
 
-```bash
-git clone https://github.com/XONIDU/xonical.git
-cd xonical
-python start.py
-```
+🔗 **[XONICAL en DeepSeek](https://chat.deepseek.com/share/vzxt5qu3ivpsuup6e5)**
 
-Abre tu navegador en: **http://localhost:5420**
+¡Solo copia el prompt y comienza a generar tu horario!
 
-### Instalación manual (dependencias)
+---
 
-```bash
-pip install flask requests qrcode[pil] Pillow beautifulsoup4 weasyprint pandas
-```
+## ✨ Características Principales
 
-## Opción 2 – Comando xoninstall (recomendado para futuras herramientas XONI)
+- 🔍 **Búsqueda automática** de profesores en MisProfesores.com
+- 📊 **Análisis detallado** de perfiles de profesores (calificación, dificultad, recomendación)
+- 📅 **Generación de 5 opciones** de horario optimizado
+- ⚙️ **Configuración de preferencias** (jerarquía, traslapes, horarios fijos)
+- 🧪 **Gestión de laboratorios** en el horario
+- 📂 **Exportación a Excel/CSV** en formatos estándar o específicos por universidad
+- 🔄 **Modificaciones y reajustes** en tiempo real
+- 📋 **Reportes en PDF** del horario generado
 
-Agrega la siguiente función a tu `~/.bashrc` con un solo comando:
+---
 
-```bash
-echo 'xoninstall() { if [ -z "$1" ]; then echo "Uso: xoninstall <repo>"; echo "Ej: xoninstall xoniran"; else git clone "https://github.com/XONIDU/$1.git"; fi; }' >> ~/.bashrc && source ~/.bashrc && echo "✅ Listo. Usa: xoninstall xonicli"
-```
+## 📋 Requisitos
 
-Luego simplemente escribe:
+- Acceso a un modelo de IA (DeepSeek, Claude, Gemini, etc.)
+- Conexión a internet (para búsquedas en MisProfesores.com)
+- PDF de horarios oficial de tu universidad (opcional)
 
-```bash
-xoninstall xonical
-cd xonical
-pip install -r requisitos.txt
-python start.py
-```
+---
 
-> **Nota:** Esta función te servirá para instalar cualquier otra herramienta futura de XONIDU (por ejemplo `xoninstall xonical`).
+## 🚀 Cómo Usar XONICAL
 
-## Opción 3 – Script para Windows (INICIAR_XONICAL.bat)
+### Paso 1: Acceder al Agente
 
-Guarda el siguiente código como `INICIAR_XONICAL.bat` en la raíz del proyecto:
+Visita el enlace compartido: **[XONICAL en DeepSeek](https://chat.deepseek.com/share/vzxt5qu3ivpsuup6e5)**
 
-```batch
-@echo off
-title XONICAL 2026 - Organizador con IA y Web Scraping
-color 0A
+O copia el contenido de `prompt_xonical.txt` y pégalo en tu modelo de IA preferido.
 
-:: ============================================================
-:: SOLICITAR PERMISOS DE ADMINISTRADOR
-:: ============================================================
-net session >nul 2>&1
-if %errorlevel% neq 0 (
-    echo Solicitando permisos de administrador...
-    echo.
-    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
-    echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
-    "%temp%\getadmin.vbs"
-    del "%temp%\getadmin.vbs"
-    exit /B
-)
+### Paso 2: Iniciar Conversación
 
-:: ============================================================
-:: EJECUTAR start.py CON PERMISOS DE ADMINISTRADOR
-:: ============================================================
-cls
-echo ============================================================
-echo           XONICAL 2026 - Organizador con IA
-echo              (Modo Administrador)
-echo ============================================================
-echo.
-echo [OK] Permisos de administrador obtenidos
-echo.
-echo Iniciando XONICAL...
-echo.
-echo [INFO] Sistema de organizacion de Eventos, Proyectos, Congresos y Articulos
-echo [INFO] Con IA Gemini y Web Scraping integrado
-echo [INFO] Accede a: http://localhost:5420
-echo [INFO] Admin: http://localhost:5420/login
-echo [INFO] QR: http://localhost:5420/qr
-echo.
-echo Presiona Ctrl+C para detener el servidor
-echo ============================================================
-echo.
-
-python start.py
-
-pause
-```
-
-### Ejecución en Windows:
-
-1. Haz doble clic en `INICIAR_XONICAL.bat`
-2. Acepta los permisos de administrador si se solicitan
-3. El servidor se iniciará en **http://localhost:5420**
-
-## 💻 Uso
-
-### 1. Configuración inicial
-
-Al ejecutar por primera vez, se te pedirá configurar:
-
-- **Nombre de la organización** (ej: XONICAL)
-- **Contraseña de administrador**
-
-### 2. Credenciales por defecto
-
-| Rol | Usuario/Organización | Contraseña |
-|-----|---------------------|------------|
-| Admin | XONICAL | admin123 |
-
-> **Importante:** Cambia la contraseña por defecto después de la primera configuración.
-
-### 3. Acceder al sistema
+El agente comenzará a guiarte paso a paso:
 
 ```
-Local:    http://localhost:5420
-Admin:    http://localhost:5420/login
-QR:       http://localhost:5420/qr
+¡Hola! Soy XONICAL, tu asistente inteligente para crear horarios universitarios. 
+Estoy potenciado por IA y puedo analizar calificaciones de MisProfesores.com 
+para darte el mejor horario posible. ¿Cómo te llamas?
 ```
 
-### 4. Módulos principales
+### Paso 3: Proporcionar Información
 
-#### 📅 Calendario
-- Vista mensual con eventos
-- Navegación entre meses
-- Días con eventos resaltados
-- Vista detallada por día
+Responde a las preguntas del agente sobre:
 
-#### 📋 Eventos
-- Creación manual o con IA
-- Campos: nombre, fecha, hora, categoría, descripción, ubicación
-- Gestión de links de convocatoria
-- Participantes y requisitos
+- Tu nombre, universidad y semestre
+- PDF de horarios o ingreso manual
+- Materias que deseas cursar
+- Preferencias de horario (jerarquía, traslapes, etc.)
 
-#### 📊 Proyectos
-- Seguimiento de proyectos de investigación
-- Responsables, fechas, estado
-- Participantes y requisitos
+### Paso 4: Analizar Profesores
 
-#### 🎯 Congresos
-- Organización de congresos académicos
-- Fechas, lugar, organizador
-- Participantes y requisitos
+El agente buscará automáticamente a tus profesores en MisProfesores.com y te mostrará:
 
-#### 📝 Artículos
-- Gestión de publicaciones científicas
-- Autores, revista, DOI, palabras clave
-- Resumen y enlace a PDF
-- Autores detallados con ORCID
+- Calificación General (0-10)
+- Nivel de Dificultad (0-10)
+- Tasa de Recomendación (%)
+- Etiquetas clave
+- Comentarios de estudiantes
 
-### 5. 🤖 IA Gemini
+### Paso 5: Seleccionar Horario
 
-- Múltiples API keys con rotación automática
-- Chat interactivo con contexto
-- Creación automática de eventos
-- Generación de artículos desde descripciones o URLs
+El agente generará 5 opciones de horario optimizado. Tú seleccionas la que mejor se adapte a tus necesidades.
 
-#### Crear evento con IA:
-1. Ve a Eventos → Nuevo Evento → "Generar con IA"
-2. Describe el evento (ej: "Conferencia sobre IA el 15 de mayo")
-3. La IA extrae automáticamente: nombre, fecha, hora, categoría, etc.
-4. Revisa y guarda
+### Paso 6: Exportar
 
-#### Generar artículo con IA:
-1. Ve a Artículos → Nuevo Artículo → "Generar con IA"
-2. Opción A: Describe el artículo
-3. Opción B: Ingresa una URL para web scraping
-4. La IA genera la estructura completa
+Descarga tu horario en Excel/CSV en el formato que necesites.
 
-### 6. 🌐 Web Scraping
+---
 
-El sistema puede analizar cualquier URL y extraer:
-- Título de la página
-- Metadatos (descripción)
-- Texto principal
-- Fechas encontradas
-- Emails
-- Teléfonos
-- Enlaces (clasificados por tipo)
+## 🔍 Protocolo de Búsqueda en MisProfesores.com
 
-**Tipos de análisis:**
-- **Básico:** Solo contenido HTML
-- **Completo:** Extrae fechas, emails, teléfonos
-- **Convocatoria:** Enfocado en fechas límite y requisitos
+XONICAL utiliza un protocolo estricto para buscar profesores:
 
-### 7. 📄 Reportes PDF
+### Formato de Búsqueda
+```
+"[NOMBRE_COMPLETO_DEL_PROFESOR] [UNIVERSIDAD] MisProfesores.com"
+```
 
-Genera reportes profesionales de:
-- Eventos
-- Proyectos
-- Congresos
-- Artículos
-- Calendario mensual
+### Regla de Oro
+**SIEMPRE se elige el PRIMER resultado de búsqueda** que aparezca en MisProfesores.com.
+
+---
+
+## 📊 Formato de Análisis de Profesores
+
+```
+## ESTADISTICAS DE [NOMBRE PROFESOR] - [UNIVERSIDAD]
+
+### METRICAS GENERALES
+| Metrica | Puntuacion / Porcentaje |
+|---------|------------------------|
+| Calidad General | [X.X]/10 |
+| Nivel de Dificultad | [X.X]/10 |
+| Tasa de Recomendacion | [XX]% |
+| Total de Evaluaciones | [X] |
+
+### INFORMACION INSTITUCIONAL
+- Universidad: [Nombre]
+- Departamento/Facultad: [Nombre]
+- Ciudad: [Ciudad]
+- Materias principales: [Lista]
+
+### ETIQUETAS CLAVE
+| Etiqueta | Votos |
+|----------|-------|
+| [Etiqueta 1] | [X] |
+| [Etiqueta 2] | [X] |
+| [Etiqueta 3] | [X] |
+
+### ANALISIS DE COMENTARIOS
+#### Opiniones Positivas
+- "[Comentario 1]"
+- "[Comentario 2]"
+
+#### Opiniones Negativas
+- "[Comentario 1]"
+- "[Comentario 2]"
+
+### RESUMEN DEL PERFIL
+[Analisis completo del estilo de enseñanza, ventajas, desventajas y recomendacion]
+
+### EVALUACION DEL AGENTE
+| Criterio | Evaluacion |
+|----------|------------|
+| Aprenderas bien? | SI/NO/DUDOSO |
+| Es facil pasar? | SI/NO/DUDOSO |
+| Recomendado? | SI/NO/DUDOSO |
+| Motivo: | [Texto breve] |
+```
+
+---
+
+## 📂 Formato de Exportación
+
+### Estructura Estándar (Excel/CSV)
+```
+| Clave | Materia | Grupo | Profesor | Calificacion | Dificultad | Dia | Hora Inicio | Hora Fin | Aula | Creditos | Tipo |
+```
+
+### Adaptación por Universidad
+- **UDG:** Formato SIIAU
+- **UNAM:** Formato DGAE
+- **ITESO:** Formato específico
+- **TEC:** Formato Tec
+- **Otra:** El agente preguntará y adaptará
+
+---
+
+## ⚙️ Preferencias Configurables
+
+### Jerarquía de Prioridades (1-8)
+1. Profesor con mejor calificación en MisProfesores.com
+2. Profesor con menor nivel de dificultad
+3. Profesor que mejor enseña según comentarios
+4. Horario compacto (menos días presenciales)
+5. Horario con espacios libres estratégicos
+6. Horario balanceado (dificultad distribuida)
+7. Cercanía entre aulas
+8. Conservar grupos con amigos/compañeros
+
+### Reglas de Traslapes
+- Permitir o no traslapes
+- Número máximo de traslapes (0-3)
+- Traslapes en materias obligatorias (Si/No)
+- Traslapes en materias optativas (Si/No)
+
+### Horarios Fijos
+- Días y horas ocupados
+- Día libre preferido
+- Preferencia de horario (mañana/tarde/noche)
+- Límite de horas por día
+
+---
+
+## 🛠️ Comandos Especiales
+
+| Comando | Descripción |
+|---------|-------------|
+| `/ayuda` | Mostrar comandos disponibles |
+| `/profesor [nombre]` | Buscar un profesor específico |
+| `/materias` | Ver lista de materias seleccionadas |
+| `/preferencias` | Ver configuración actual |
+| `/reiniciar` | Empezar de nuevo |
+| `/exportar [formato]` | Exportar horario (excel/csv/pdf) |
+| `/salir` | Terminar sesión |
+
+---
+
+## 📊 Clasificación de Profesores
+
+### Por Calidad
+| Categoría | Calificación |
+|-----------|--------------|
+| EXCELENTE | >= 8.5 |
+| BUENO | 7.5 - 8.4 |
+| REGULAR | 6.5 - 7.4 |
+| MALO | < 6.5 |
+
+### Por Dificultad
+| Categoría | Dificultad | Recomendación |
+|-----------|------------|---------------|
+| BARCO | <= 3.0 | < 60% |
+| EQUILIBRADO | 3.1 - 6.0 | 60-80% |
+| EXIGENTE | > 6.0 | > 80% |
+
+---
 
 ## 📁 Estructura del Proyecto
 
 ```
 xonical/
-├── start.py                 # Lanzador con autoreinicio
-├── xonical.py               # Aplicación principal
-├── requisitos.txt           # Dependencias
-├── README.md                # Documentación
-├── INICIAR_XONICAL.bat      # Script para Windows (opcional)
-├── keys.txt                 # API keys de Gemini (opcional)
-│
-├── data/                    # Datos del sistema (CSV)
-│   ├── config.csv
-│   ├── eventos.csv
-│   ├── proyectos.csv
-│   ├── congresos.csv
-│   ├── articulos.csv
-│   ├── participantes.csv
-│   ├── requisitos.csv
-│   ├── links.csv
-│   └── web_scraping.csv
-│
-├── static/                  # Archivos estáticos
-│   └── qrcodes/             # Códigos QR generados
-│
-└── templates/               # Plantillas HTML
-    ├── base.html
-    ├── configurar.html
-    ├── login.html
-    ├── dashboard.html
-    ├── calendario.html
-    ├── calendario_dia.html
-    ├── eventos.html
-    ├── evento_detalle.html
-    ├── admin_evento_form.html
-    ├── proyectos.html
-    ├── proyecto_detalle.html
-    ├── congresos.html
-    ├── congreso_detalle.html
-    ├── articulos.html
-    ├── articulo_detalle.html
-    ├── admin_articulo_form.html
-    ├── web_scraping.html
-    ├── web_scraping_detalle.html
-    ├── ia_chat.html
-    ├── qr.html
-    ├── buscar.html
-    ├── reporte_pdf.html
-    ├── reporte_pdf_calendario.html
-    ├── 404.html
-    └── 500.html
+├── README.md                 # Este archivo
+└── prompt_xonical.txt        # Prompt completo del agente XONICAL
 ```
-
-## 🔧 Solución de Problemas
-
-| Problema | Solución |
-|----------|----------|
-| Puerto 5420 en uso | `lsof -ti:5420 \| xargs kill -9` (Linux/Mac) o cambia el puerto en `xonical.py` |
-| No hay API keys configuradas | Crea `keys.txt` y agrega tus keys de Gemini (una por línea) |
-| WeasyPrint no instalado | `sudo apt-get install python3-pip python3-cffi python3-brotli libpango-1.0-0 libharfbuzz0b libpangoft2-1.0-0` (Linux) |
-| Dependencias faltantes | `pip install -r requisitos.txt` |
-| Error de web scraping | Verifica conexión a internet o usa modo "básico" |
-| QR no se muestra | `pip install qrcode[pil]` |
-
-## 📊 Fuentes de Búsqueda (Web Scraping)
-
-- **Google Books API** – libros académicos
-- **Open Library** – biblioteca digital abierta
-- **CrossRef** – DOIs y metadatos de artículos
-- **arXiv** – preprints de física, matemáticas, informática
-- **Wikipedia** – API de búsqueda en español
-- **DuckDuckGo** – búsqueda general (último recurso)
-
-## ❌ Lo que XONICAL NO hace
-
-- ❌ No requiere API keys para funcionar (solo para IA Gemini)
-- ❌ No exporta a JSON (solo PDF y CSV)
-- ❌ No tiene sincronización automática con Google Calendar (próximamente)
-- ❌ No es una app móvil nativa (próximamente)
-
-## 📋 Requisitos
-
-```txt
-Flask==2.3.3
-qrcode[pil]==7.4.2
-Pillow==10.1.0
-requests==2.31.0
-beautifulsoup4==4.12.2
-weasyprint==60.1
-pandas==2.0.3
-```
-
-## 🔌 API Endpoints
-
-| Endpoint | Método | Descripción |
-|----------|--------|-------------|
-| `/` | GET | Interfaz web principal |
-| `/calendario` | GET | Vista del calendario |
-| `/eventos` | GET | Lista de eventos |
-| `/proyectos` | GET | Lista de proyectos |
-| `/congresos` | GET | Lista de congresos |
-| `/articulos` | GET | Lista de artículos |
-| `/ia` | GET | Chat con IA |
-| `/ia/consultar` | POST | Consultar a la IA |
-| `/web-scraping` | GET | Interfaz de web scraping |
-| `/web-scraping/analizar` | POST | Analizar URL |
-| `/reporte/pdf/<tipo>` | GET | Generar reporte PDF |
-| `/qr` | GET | Código QR de acceso |
-| `/buscar` | GET | Búsqueda global |
-
-## 👤 Créditos
-
-**Desarrollador:** XONIDU (Darian Alberto Camacho Salas)  
-**Organización:** XONIDU  
-
-**Tecnologías utilizadas:**  
-Flask, Gemini API, BeautifulSoup4, WeasyPrint, QRCode, Pillow, Pandas
-
-## 📜 Licencia
-
-MIT License
 
 ---
 
-**Hecho con ❤️ por XONIDU**
+## 📌 Reglas de Conducta del Agente
 
-**© 2026 XONIDU - Todos los derechos reservados**
+### ✅ DEBE HACER
+- Siempre preguntar antes de generar el horario final
+- Mostrar las 5 mejores opciones con estadísticas
+- Permitir modificaciones y reajustes
+- Ofrecer exportación en múltiples formatos
+- Guardar historial para futuras referencias
+- Elegir SIEMPRE el primer resultado de MisProfesores.com
+- Extraer TODOS los datos disponibles del perfil
+
+### ❌ NO DEBE HACER
+- Inventar datos que no estén en el perfil
+- Omitir información negativa de profesores
+- Recomendar profesores sin datos suficientes
+- Generar horarios sin confirmar preferencias
+- Ignorar las reglas de traslapes del usuario
+
+---
+
+## 🤖 Plataformas Soportadas
+
+- **DeepSeek** (Enlace directo: [XONICAL en DeepSeek](https://chat.deepseek.com/share/vzxt5qu3ivpsuup6e5))
+- **Claude**
+- **Gemini**
+- Cualquier modelo de IA que acepte prompts extensos
+
+---
+
+## 👨‍💻 Créditos
+
+**Desarrollador:** Darian Alberto Camacho Salas  
+**Alias:** XONIDU  
+**Contacto:** xonidu@gmail.com  
+**Versión:** 3.0 - Integración con MisProfesores.com  
+**Fecha:** 2026  
+
+```
+================================================================================
+           "La organización inteligente es el primer paso hacia el éxito"
+           
+                      © 2026 XONIDU - Todos los derechos reservados
+================================================================================
+```
+
+---
+
+## 📜 Licencia
+
+Este software es de uso libre para fines educativos y académicos.  
+Para uso comercial, contactar al desarrollador.
+
+---
+
+**¡Gracias por usar XONICAL!** 🎓
+
