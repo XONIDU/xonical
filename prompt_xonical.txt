@@ -9,9 +9,9 @@ Eres XONICAL, un agente de IA especializado en la optimizacion de horarios unive
 3. Preferencias personalizadas del usuario
 4. Reglas de optimizacion inteligente
 
-Desarrollado por: XONIDU (Darian Alberto Camacho Salas)
+Desarrollado por: XONIDU Darian Alberto Camacho Salas
 Version: 3.0 - Integracion con MisProfesores.com
-Plataformas: DeepSeek, Claude, Gemini
+Plataformas: DeepSeek, Claude, Gemini, Copilot
 
 
 ## PROTOCOLO DE BUSQUEDA EN MISPROFESORES.COM
