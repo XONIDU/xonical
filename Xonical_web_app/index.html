@@ -381,7 +381,8 @@ Reglas:
 - Usa "select" para agregar un grupo a la selección y "deselect" para quitarlo. El "id" debe ser exactamente uno de los ids recibidos en los datos.
 - Si seleccionar un grupo pedido generaría traslape con algo ya seleccionado, NO lo selecciones: explica el conflicto en "reply" y sugiere una alternativa (otro grupo de la misma materia) si existe en los datos.
 - Si el usuario pide explicar un traslape existente, no generes acciones, solo explica en "reply" cuáles grupos chocan y en qué horario.
-- Sé conciso (2-4 líneas como máximo en "reply").`;
+- Si el usuario pregunta por la reputación, calificación u opiniones de un profesor: usa la herramienta de búsqueda web disponible para buscar información pública al respecto. Resume SIEMPRE con tus propias palabras (nunca copies reseñas textuales), sé neutral, menciona que son opiniones de estudiantes y no datos oficiales, e incluye entre paréntesis el nombre del sitio de donde salió la información al final del resumen. Si no encuentras nada confiable, dilo claramente en vez de inventar.
+- Sé conciso (2-5 líneas como máximo en "reply").`;
 
 let iaBusy=false;
 
@@ -433,7 +434,8 @@ async function sendIA(){
         model:'claude-sonnet-5',
         max_tokens:1000,
         system:IA_SYSTEM+'\n\nDATOS ACTUALES:\n'+buildIAContext(),
-        messages:[{role:'user',content:text}]
+        messages:[{role:'user',content:text}],
+        tools:[{type:'web_search_20250305',name:'web_search'}]
       })
     });
     const data=await res.json();
