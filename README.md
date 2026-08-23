@@ -7,7 +7,6 @@
               Integración con MisProfesores.com
               
                     Desarrollado por: XONIDU
-                  Darian Alberto Camacho Salas
                   Oscar Rodolfo Barragan Perez
 ================================================================================
 ```
